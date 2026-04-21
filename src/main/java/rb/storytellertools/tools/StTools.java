@@ -15,9 +15,11 @@ public class StTools{
 		userIn = sc.nextLine();
 		
 		switch(userIn){
-			case "test dir":
+			case "new":
 				Game g = new Game();
-				g.makeDir("abadaba");
+				System.out.print("\n\n\nGame Name: ");
+				userIn = sc.nextLine();
+				g.makeDir(userIn);
 				break;
 			case "quit":
 				break;
