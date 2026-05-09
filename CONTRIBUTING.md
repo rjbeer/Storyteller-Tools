@@ -1,7 +1,7 @@
 # Contributing to this Project
 
 ## Welcome
-Welcome to the Storyteller Tools project we are happy to welcome contributions from the community. Please make sure to read our [Code of Conduct](CODE_OF_CONDUCT.md) before contributing to this project whether through discussions, opening a new issue, etc.
+Welcome to the Storyteller Tools project we are happy to welcome contributions from the community. Please make sure to read our [Code of Conduct](CODE_OF_CONDUCT.MD) before contributing to this project whether through discussions, opening a new issue, etc.
 
 ## Getting Started with Storyteller Tools
 Before implementing a feature or fixing a bug make sure that an issue exists reflecting what it is you would like to contribute to this project. If the issue does not exist first create the issue and follow our feature request/bug report guidelines when doing so. A few questions may be asked within the issue for clarification before it is labeled.
