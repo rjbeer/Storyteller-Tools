@@ -15,7 +15,7 @@ class FileSetup{
 		desktopDir = desktopDir + File.separator + "Desktop";
 	}
 
-	public void setupDir(String gameName){
+	public String setupDir(String gameName){
 		Path gamePath = Paths.get(desktopDir, gameName);
 		try{
 			Files.createDirectories(gamePath);
@@ -30,6 +30,8 @@ class FileSetup{
 			System.err.println("Could not create " + gameName +
 					" " + e.getMessage());
 		}
+
+		return gamePath.toString();
 		
 	}
 
