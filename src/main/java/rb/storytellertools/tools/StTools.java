@@ -13,18 +13,25 @@ public class StTools{
 	while(!(userIn.equals("quit"))){
 		System.out.print(prompt);
 		userIn = sc.nextLine();
-		
+
 		switch(userIn){
 			case "new":
-				Game g = new Game();
 				System.out.print("\n\n\nGame Name: ");
 				userIn = sc.nextLine();
-				g.makeDir(userIn);
+				game.makeDir(userIn);
+				break;
+			case "set":
+				System.out.print("\n\n\nDirectory Name: ");
+				userIn = sc.nextLine();
+				game.setCurWorkingDir(userIn);
+				break;
+			case "cwd":
+				System.out.print("\n\n\n" + game.getCWD() + "\n");
 				break;
 			case "quit":
 				break;
 			default:
-				System.out.print("\n" + prompt);
+				System.out.print("not a command.\n\n");
 		}
 	}
     }
