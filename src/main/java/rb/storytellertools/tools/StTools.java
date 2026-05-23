@@ -24,8 +24,6 @@ public class StTools{
 				System.out.print("\n\n\nDirectory Name: ");
 				userIn = sc.nextLine();
 				game.setCurWorkingDir(userIn);
-				String cwd = game.getCWD();
-				System.out.println("CWD: " + cwd);
 				break;
 			case "cwd":
 				System.out.print("\n\n\n" + game.getCWD() + "\n");
