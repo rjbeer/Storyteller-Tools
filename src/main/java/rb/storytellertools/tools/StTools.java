@@ -1,6 +1,7 @@
 package rb.storytellertools.tools;
 
 import java.util.Scanner;
+import java.util.ArrayList;
 
 public class StTools{
     
@@ -9,12 +10,26 @@ public class StTools{
 	Game game = new Game();
 	String prompt = "stt: ";
 	String userIn = "";
-	
-	while(!(userIn.equals("quit"))){
+	String curCmd = "";
+	Tokenizer t = new Tokenizer();
+	ArrayList<String> arguments = new ArrayList<>();
+
+	while(!(curCmd.equals("quit"))){
 		System.out.print(prompt);
 		userIn = sc.nextLine();
+		arguments = t.parseArgs(userIn.trim());
+		
+		if(arguments.isEmpty()){
+			continue;
+		}
 
-		switch(userIn){
+		curCmd = arguments.get(0);
+
+		//for(int i = 0; i < arguments.size(); i++){
+		//	System.out.println(arguments.get(i));
+		//}
+
+		switch(curCmd){
 			case "new":
 				System.out.print("\n\n\nGame Name: ");
 				userIn = sc.nextLine();
@@ -31,7 +46,7 @@ public class StTools{
 			case "quit":
 				break;
 			default:
-				System.out.print("not a command.\n\n");
+				System.out.print(curCmd + " not a command.\n\n");
 		}
 	}
     }
