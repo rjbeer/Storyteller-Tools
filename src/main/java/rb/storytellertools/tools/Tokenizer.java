@@ -17,8 +17,10 @@ public class Tokenizer {
 				continue;
 			}
 			if(pieces[i] == ' ' && !doubleQuote){
-				parsedArgs.add(argument.toString());
-				argument = new StringBuilder();
+				if(!argument.isEmpty()){
+					parsedArgs.add(argument.toString());
+					argument = new StringBuilder();
+				}
 			} else {
 				argument.append(pieces[i]);
 			}

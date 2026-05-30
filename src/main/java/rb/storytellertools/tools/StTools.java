@@ -17,12 +17,12 @@ public class StTools{
 	while(!(curCmd.equals("quit"))){
 		System.out.print(prompt);
 		userIn = sc.nextLine();
-		arguments = t.parseArgs(userIn);
+		arguments = t.parseArgs(userIn.trim());
 		curCmd = arguments.get(0);
 
-		//for(int i = 0; i < arguments.size(); i++){
-		//	System.out.println(arguments.get(i));
-		//}
+		for(int i = 0; i < arguments.size(); i++){
+			System.out.println(arguments.get(i));
+		}
 
 		switch(curCmd){
 			case "new":
