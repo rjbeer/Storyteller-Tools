@@ -18,6 +18,11 @@ public class StTools{
 		System.out.print(prompt);
 		userIn = sc.nextLine();
 		arguments = t.parseArgs(userIn.trim());
+		
+		if(arguments.isEmpty()){
+			continue;
+		}
+
 		curCmd = arguments.get(0);
 
 		for(int i = 0; i < arguments.size(); i++){
