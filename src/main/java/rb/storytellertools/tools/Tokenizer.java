@@ -12,7 +12,11 @@ public class Tokenizer {
 		boolean doubleQuote = false;
 
 		for(int i = 0; i < pieces.length; i++){
-			if(pieces[i] == ' '){
+			if(pieces[i] == '\"'){
+				doubleQuote = !doubleQuote;
+				continue;
+			}
+			if(pieces[i] == ' ' && !doubleQuote){
 				parsedArgs.add(argument.toString());
 				argument = new StringBuilder();
 			} else {

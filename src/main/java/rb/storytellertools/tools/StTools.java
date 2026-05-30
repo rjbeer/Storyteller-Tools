@@ -20,9 +20,9 @@ public class StTools{
 		arguments = t.parseArgs(userIn);
 		curCmd = arguments.get(0);
 
-		for(int i = 0; i < arguments.size(); i++){
-			System.out.println(arguments.get(i));
-		}
+		//for(int i = 0; i < arguments.size(); i++){
+		//	System.out.println(arguments.get(i));
+		//}
 
 		switch(curCmd){
 			case "new":
@@ -41,7 +41,7 @@ public class StTools{
 			case "quit":
 				break;
 			default:
-				System.out.print("not a command.\n\n");
+				System.out.print(curCmd + " not a command.\n\n");
 		}
 	}
     }
