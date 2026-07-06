@@ -6,7 +6,7 @@ public class Tokenizer {
 	
 
 	public ArrayList<String> parseArgs(String cmd){
-		ArrayList<String> parsedArgs = new ArrayList<>();
+		ArrayList<String> parsedArgs = new ArrayList<String>();
 		StringBuilder argument = new StringBuilder();
 		char[] pieces = cmd.toCharArray();
 		boolean doubleQuote = false;

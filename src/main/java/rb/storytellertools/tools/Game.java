@@ -4,10 +4,13 @@ import java.io.File;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.Files;
+import java.util.ArrayList;
 
 class Game{
-	String cwd = System.getProperty("user.home") + File.separator + "Desktop";
-	
+	private String cwd = System.getProperty("user.home") + File.separator + "Desktop";
+	private TurnOrder trn = new TurnOrder();
+
+
 	public Game(){
 	
 	}
@@ -36,5 +39,23 @@ class Game{
 	}
 
 	public String getCWD(){ return cwd; }
+
+	public void addToTurnOrder(String name){
+		trn.addName(name);
+	}
+
+	public void addToTurnOrder(String name, int initiative){
+		trn.addName(name, initiative);
+		ArrayList<PlayerC> pc = trn.getList();
+		trn.displayOrder();
+	}
+
+	public void showOrder() {
+		trn.displayOrder();
+	}
+
+	public void resetOrder(){
+		trn.resetEntries();
+	}
 
 }
