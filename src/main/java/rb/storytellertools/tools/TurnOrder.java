@@ -22,11 +22,11 @@ public class TurnOrder {
 		}
 
 		for(int i = 0; i < pChar.size(); i++){
-			if( (i == pChar.size() - 1) ){
-				pChar.add(new PlayerC(name, num));
-				break;
-			} else if(pChar.get(i).getInitiative() <= num){
+			if( pChar.get(i).getInitiative() <= num ){
 				pChar.add(i, new PlayerC(name, num));
+				break;
+			} else if( i == pChar.size() ){
+				pChar.add(new PlayerC(name, num));
 				break;
 			}
 		}
