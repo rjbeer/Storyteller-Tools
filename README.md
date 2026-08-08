@@ -19,6 +19,7 @@ Once your project has been cloned navigate to the project directory on your devi
 once compiled move into the target folder and run the program
 
 ```cd target```
+
 ```java rb.storytellertools.tools.StTools```
 
 ## Contributing
