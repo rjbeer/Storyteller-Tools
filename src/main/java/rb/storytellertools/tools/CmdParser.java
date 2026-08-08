@@ -5,8 +5,10 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.Files;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 class CmdParser{
+	private Scanner sc = new Scanner(System.in);
 	private String cwd = System.getProperty("user.home") + File.separator + "Desktop";
 	private TurnOrder trnOrd = new TurnOrder();
 
@@ -27,6 +29,9 @@ class CmdParser{
 				FileSetup fs = new FileSetup();
 				cwd = fs.passArg(argList);
 				break;
+			case "set":
+				setCurWorkingDir();
+				break;
 			case "trn":
 				trnOrd.passArg(argList);
 				break;
@@ -35,12 +40,11 @@ class CmdParser{
 		}
 	}
 
-	public void makeDir(String gameName){
-		FileSetup fs = new FileSetup();
-		cwd = fs.setupDir(gameName);
-	}
+	public void setCurWorkingDir(){
+		System.out.print("\nDirectory name: ");
+		String dirName = sc.nextLine();
+		System.out.println("");
 
-	public void setCurWorkingDir(String dirName){
 		if(cwd.substring(cwd.length() - dirName.length(), cwd.length()).equals(dirName)){
 			return;
 		}
