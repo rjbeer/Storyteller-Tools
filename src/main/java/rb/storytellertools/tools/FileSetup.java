@@ -1,5 +1,7 @@
 package rb.storytellertools.tools;
 
+import java.util.ArrayList;
+import java.util.Scanner;
 import java.io.File;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -7,12 +9,25 @@ import java.nio.file.Files;
 import java.io.IOException;
 
 class FileSetup{
+	Scanner sc = new Scanner(System.in);
 	String desktopDir;
 	String[] defaultDirs = {"Notes", "Maps", "Characters"};
 
 	public FileSetup(){
 		desktopDir = System.getProperty("user.home");
 		desktopDir = desktopDir + File.separator + "Desktop";
+	}
+
+	public String passArg(ArrayList<String> argList){
+		if(argList.size() > 1){
+			//TODO: Implement multi-argument parsing
+			return desktopDir;
+		} else {
+			System.out.print("Name of the game: ");
+			String gameName = sc.nextLine();
+			System.out.print("\n");
+			return setupDir(gameName);
+		}
 	}
 
 	public String setupDir(String gameName){

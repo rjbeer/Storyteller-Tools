@@ -23,6 +23,10 @@ class CmdParser{
 		String command = argList.get(0);
 
 		switch(command){
+			case "new":
+				FileSetup fs = new FileSetup();
+				cwd = fs.passArg(argList);
+				break;
 			case "trn":
 				trnOrd.passArg(argList);
 				break;
