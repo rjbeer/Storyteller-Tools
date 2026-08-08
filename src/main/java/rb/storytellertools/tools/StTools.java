@@ -25,6 +25,7 @@ public class StTools{
 		arguments = t.parseArgs(userIn.trim());
 		
 		if(userIn.toUpperCase().equals("QUIT")){
+			curCmd = userIn;
 			continue;
 		}
 
