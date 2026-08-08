@@ -25,7 +25,7 @@ public class TurnOrder {
 			if( pChar.get(i).getInitiative() <= num ){
 				pChar.add(i, new PlayerC(name, num));
 				break;
-			} else if( i == pChar.size() ){
+			} else if( i == pChar.size() - 1 ){
 				pChar.add(new PlayerC(name, num));
 				break;
 			}
