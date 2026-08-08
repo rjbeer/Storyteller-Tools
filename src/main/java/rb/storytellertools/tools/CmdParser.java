@@ -32,6 +32,9 @@ class CmdParser{
 			case "set":
 				setCurWorkingDir();
 				break;
+			case "cwd":
+				System.out.println(cwd);
+				break;
 			case "trn":
 				trnOrd.passArg(argList);
 				break;
