@@ -6,16 +6,16 @@ import java.nio.file.Paths;
 import java.nio.file.Files;
 import java.util.ArrayList;
 
-class Game{
+class CmdParser{
 	private String cwd = System.getProperty("user.home") + File.separator + "Desktop";
 	private TurnOrder trn = new TurnOrder();
 
 
-	public Game(){
+	public CmdParser(){
 	
 	}
 
-	public Game(String homeDir){
+	public CmdParser(String homeDir){
 		cwd = cwd + File.separator + homeDir;
 	}
 	

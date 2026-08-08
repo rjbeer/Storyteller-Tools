@@ -13,7 +13,7 @@ public class StTools{
     public static void main(String[] args){
 	Scanner sc = new Scanner(System.in);
 	String cwd = System.getProperty("user.home") + File.separator + "desktop";
-	Game game = new Game();
+	CmdParser parser = new CmdParser();
 	TurnOrder to = new TurnOrder();
 	String prompt = "stt: ";
 	String userIn = "";
@@ -46,10 +46,10 @@ public class StTools{
 			case "set":
 				System.out.print("\n\n\nDirectory Name: ");
 				userIn = sc.nextLine();
-				game.setCurWorkingDir(userIn);
+				parser.setCurWorkingDir(userIn);
 				break;
 			case "cwd":
-				System.out.print("\n\n\n" + game.getCWD() + "\n");
+				System.out.print("\n\n\n" + parser.getCWD() + "\n");
 				break;
 			case "trn":
 				boolean ordered = false;
@@ -61,20 +61,20 @@ public class StTools{
 				if(arguments.size() == 1 && (!ordered)){
 					System.out.print("Name of character/Player: ");
 					userIn = sc.nextLine();
-					game.addToTurnOrder(userIn, 0);
+					parser.addToTurnOrder(userIn, 0);
 				} else {
 					System.out.print("\nName of character/Player: ");
 					userIn = sc.nextLine();
 					System.out.print("\nInitaitive: ");
 					int userInitiative = Integer.parseInt(sc.nextLine());
-					game.addToTurnOrder(userIn, userInitiative);
+					parser.addToTurnOrder(userIn, userInitiative);
 				}
 				break;
 			case "rst":
-				game.resetOrder();
+				parser.resetOrder();
 				break;
 			case "order":
-				game.showOrder();
+				parser.showOrder();
 				break;
 			case "rnd":
 				Random r = new Random();
