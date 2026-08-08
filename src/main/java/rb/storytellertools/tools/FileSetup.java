@@ -30,7 +30,7 @@ class FileSetup{
 		}
 	}
 
-	public String setupDir(String gameName){
+	private String setupDir(String gameName){
 		Path gamePath = Paths.get(desktopDir, gameName);
 		try{
 			Files.createDirectories(gamePath);
@@ -50,7 +50,7 @@ class FileSetup{
 		
 	}
 
-	public void setupDir(String gameName, String[] customDir){
+	private void setupDir(String gameName, String[] customDir){
 		Path gamePath = Paths.get(desktopDir, gameName);
 		try{
 			Files.createDirectories(gamePath);

@@ -19,6 +19,10 @@ public class TurnOrder {
 		if (argList.size() > 1) {
 			System.out.println("TODO: allow for multiple flags in TurnOrder");
 			return;
+		} 
+
+		if (argList.get(0).toUpperCase().equals("RST")){
+			resetEntries();
 		} else {
 			System.out.print("\nInitiative (Y/N)?\n");
 			String in = sc.nextLine();
@@ -36,7 +40,7 @@ public class TurnOrder {
 		displayOrder();
 	}
 	
-	public void addName(String name){
+	private void addName(String name){
 		pChar.add(new PlayerC(name));
 	}
 
@@ -57,15 +61,20 @@ public class TurnOrder {
 		}
 	}
 
-	public ArrayList<PlayerC> getList(){ return pChar; }
+	private ArrayList<PlayerC> getList(){ return pChar; }
 
-	public void displayOrder(){
+	private void displayOrder(){
+		if(pChar.isEmpty()){
+			System.out.println("No entries");
+			return;
+		}
+
 		for(PlayerC p : pChar){
 			System.out.println(p.getPlayerName() + " ============ " + p.getInitiative());
 		}
 	}
 
-	public void resetEntries(){
+	private void resetEntries(){
 		pChar.clear();
 	}
 	

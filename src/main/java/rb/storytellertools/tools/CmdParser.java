@@ -17,10 +17,6 @@ class CmdParser{
 	public CmdParser(){
 	
 	}
-
-	public CmdParser(String homeDir){
-		cwd = cwd + File.separator + homeDir;
-	}
 	
 	public void parseCmd(ArrayList<String> argList){
 		String command = argList.get(0);
@@ -39,6 +35,9 @@ class CmdParser{
 			case "trn":
 				trnOrd.passArg(argList);
 				break;
+			case "rst":
+				trnOrd.passArg(argList);
+				break;
 			case "rnd":
 				Random r = new Random();
 				System.out.print("\nNum: ");
@@ -51,7 +50,7 @@ class CmdParser{
 		}
 	}
 
-	public void setCurWorkingDir(){
+	private void setCurWorkingDir(){
 		System.out.print("\nDirectory name: ");
 		String dirName = sc.nextLine();
 		System.out.println("");
@@ -69,6 +68,6 @@ class CmdParser{
 		}
 	}
 
-	public String getCWD(){ return cwd; }
+	private String getCWD(){ return cwd; }
 
 }
