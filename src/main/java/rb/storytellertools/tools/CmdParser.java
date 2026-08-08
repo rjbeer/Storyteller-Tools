@@ -8,7 +8,7 @@ import java.util.ArrayList;
 
 class CmdParser{
 	private String cwd = System.getProperty("user.home") + File.separator + "Desktop";
-	private TurnOrder trn = new TurnOrder();
+	private TurnOrder trnOrd = new TurnOrder();
 
 
 	public CmdParser(){
@@ -19,6 +19,18 @@ class CmdParser{
 		cwd = cwd + File.separator + homeDir;
 	}
 	
+	public void parseCmd(ArrayList<String> argList){
+		String command = argList.get(0);
+
+		switch(command){
+			case "trn":
+				trnOrd.passArg(argList);
+				break;
+			default:
+				System.out.println("\nNot a command\n");
+		}
+	}
+
 	public void makeDir(String gameName){
 		FileSetup fs = new FileSetup();
 		cwd = fs.setupDir(gameName);
@@ -39,23 +51,5 @@ class CmdParser{
 	}
 
 	public String getCWD(){ return cwd; }
-
-	public void addToTurnOrder(String name){
-		trn.addName(name);
-	}
-
-	public void addToTurnOrder(String name, int initiative){
-		trn.addName(name, initiative);
-		ArrayList<PlayerC> pc = trn.getList();
-		trn.displayOrder();
-	}
-
-	public void showOrder() {
-		trn.displayOrder();
-	}
-
-	public void resetOrder(){
-		trn.resetEntries();
-	}
 
 }

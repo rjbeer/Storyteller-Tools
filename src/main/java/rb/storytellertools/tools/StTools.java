@@ -27,15 +27,26 @@ public class StTools{
 		arguments = t.parseArgs(userIn.trim());
 		
 		if(arguments.isEmpty()){
+			System.out.println("No command given please enter a command\n");
 			continue;
 		}
 
 		curCmd = arguments.get(0);
 
+		if(arguments.get(0).toUpperCase().equals("QUIT")){
+			continue;
+		}
+
+		parser.parseCmd(arguments);
+		continue;
+
 		//for(int i = 0; i < arguments.size(); i++){
 		//	System.out.println(arguments.get(i));
 		//}
+		
 
+
+/*
 		switch(curCmd){
 			case "new":
 				System.out.print("\n\n\nGame Name: ");
@@ -51,31 +62,6 @@ public class StTools{
 			case "cwd":
 				System.out.print("\n\n\n" + parser.getCWD() + "\n");
 				break;
-			case "trn":
-				boolean ordered = false;
-				System.out.print("\nInitiative (Y/N)?: ");
-				userIn = sc.nextLine();
-				if(userIn.toUpperCase().equals("Y")){
-					ordered = true;
-				}
-				if(arguments.size() == 1 && (!ordered)){
-					System.out.print("Name of character/Player: ");
-					userIn = sc.nextLine();
-					parser.addToTurnOrder(userIn, 0);
-				} else {
-					System.out.print("\nName of character/Player: ");
-					userIn = sc.nextLine();
-					System.out.print("\nInitaitive: ");
-					int userInitiative = Integer.parseInt(sc.nextLine());
-					parser.addToTurnOrder(userIn, userInitiative);
-				}
-				break;
-			case "rst":
-				parser.resetOrder();
-				break;
-			case "order":
-				parser.showOrder();
-				break;
 			case "rnd":
 				Random r = new Random();
 				System.out.print("num: ");
@@ -88,6 +74,10 @@ public class StTools{
 			default:
 				System.out.print(curCmd + " not a command.\n\n");
 		}
+*/
+
+
+
 	}
     }
 
