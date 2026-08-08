@@ -5,26 +5,56 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.Files;
 import java.util.ArrayList;
+import java.util.Scanner;
+import java.util.Random;
 
 class CmdParser{
+	private Scanner sc = new Scanner(System.in);
 	private String cwd = System.getProperty("user.home") + File.separator + "Desktop";
-	private TurnOrder trn = new TurnOrder();
+	private TurnOrder trnOrd = new TurnOrder();
 
 
 	public CmdParser(){
 	
 	}
-
-	public CmdParser(String homeDir){
-		cwd = cwd + File.separator + homeDir;
-	}
 	
-	public void makeDir(String gameName){
-		FileSetup fs = new FileSetup();
-		cwd = fs.setupDir(gameName);
+	public void parseCmd(ArrayList<String> argList){
+		String command = argList.get(0);
+
+		switch(command){
+			case "new":
+				FileSetup fs = new FileSetup();
+				cwd = fs.passArg(argList);
+				break;
+			case "set":
+				setCurWorkingDir();
+				break;
+			case "cwd":
+				System.out.println(cwd);
+				break;
+			case "trn":
+				trnOrd.passArg(argList);
+				break;
+			case "rst":
+				trnOrd.passArg(argList);
+				break;
+			case "rnd":
+				Random r = new Random();
+				System.out.print("\nNum: ");
+				String in = sc.nextLine();
+				int rNum = r.nextInt(Integer.parseInt(in)) + 1;
+				System.out.println("\n" + rNum);
+				break;
+			default:
+				System.out.println("\nNot a command\n");
+		}
 	}
 
-	public void setCurWorkingDir(String dirName){
+	private void setCurWorkingDir(){
+		System.out.print("\nDirectory name: ");
+		String dirName = sc.nextLine();
+		System.out.println("");
+
 		if(cwd.substring(cwd.length() - dirName.length(), cwd.length()).equals(dirName)){
 			return;
 		}
@@ -38,24 +68,6 @@ class CmdParser{
 		}
 	}
 
-	public String getCWD(){ return cwd; }
-
-	public void addToTurnOrder(String name){
-		trn.addName(name);
-	}
-
-	public void addToTurnOrder(String name, int initiative){
-		trn.addName(name, initiative);
-		ArrayList<PlayerC> pc = trn.getList();
-		trn.displayOrder();
-	}
-
-	public void showOrder() {
-		trn.displayOrder();
-	}
-
-	public void resetOrder(){
-		trn.resetEntries();
-	}
+	private String getCWD(){ return cwd; }
 
 }
