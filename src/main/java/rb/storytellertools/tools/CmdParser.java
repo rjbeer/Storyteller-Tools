@@ -6,6 +6,7 @@ import java.nio.file.Paths;
 import java.nio.file.Files;
 import java.util.ArrayList;
 import java.util.Scanner;
+import java.util.Random;
 
 class CmdParser{
 	private Scanner sc = new Scanner(System.in);
@@ -37,6 +38,13 @@ class CmdParser{
 				break;
 			case "trn":
 				trnOrd.passArg(argList);
+				break;
+			case "rnd":
+				Random r = new Random();
+				System.out.print("\nNum: ");
+				String in = sc.nextLine();
+				int rNum = r.nextInt(Integer.parseInt(in)) + 1;
+				System.out.println("\n" + rNum);
 				break;
 			default:
 				System.out.println("\nNot a command\n");
