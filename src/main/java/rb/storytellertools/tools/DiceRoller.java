@@ -27,6 +27,7 @@ class DiceRoller {
 	public void passArg(ArrayList<String> argList){
 		int result = 0;
 		String[] dice;
+		
 
 		if(argList.size() > 3) {
 			System.out.println(ANSI_RED + "Invalid Format." + ANSI_RESET);
@@ -36,7 +37,7 @@ class DiceRoller {
 		if(argList.size() < 2) {
 			System.out.println(ANSI_RED + "Invalid format for \'roll\'.\n" + ANSI_RESET + helpMsg);
 			return;
-		}
+		}	
 
 		if(argList.get(1).equals("-h")){
 			System.out.println(helpMsg);
@@ -49,11 +50,24 @@ class DiceRoller {
 		}
 
 		if(argList.get(1).equals("-i")) {
+			try{
+				dice = argList.get(2).split("d");
+			} catch (Exception e) {
+				System.out.println("Invalid format. Argument must be \'#d#\'. Was " + argList.get(2));
+				return;
+			}
+
+			rollIndividual(dice);
 			return;
 		}
 		
-		dice = argList.get(1).toLowerCase().split("d");
-		
+		try {
+			dice = argList.get(1).split("d");
+		} catch(Exception e) {
+			System.out.println("Invalid Format. must be \'#d#\'. Was " + argList.get(1));
+			return;
+		}
+
 		result = roll(dice);
 
 		resHistory.add(result);
@@ -71,6 +85,15 @@ class DiceRoller {
 		System.out.println(sum);
 
 		return sum;
+	}
+
+	private void rollIndividual(String[] dice){
+		for(int i = 0; i < Integer.parseInt(dice[0]); i++){
+			int result = r.nextInt(Integer.parseInt(dice[1])) + 1;
+			System.out.println(result);
+			resHistory.add(result);
+			rolHistory.add("1d" + String.valueOf(dice[1]));
+		}
 	}
 
 	private void printHistory(){
