@@ -12,6 +12,7 @@ class CmdParser{
 	private Scanner sc = new Scanner(System.in);
 	private String cwd = System.getProperty("user.home") + File.separator + "Desktop";
 	private TurnOrder trnOrd = new TurnOrder();
+	private DiceRoller dr = new DiceRoller();
 
 
 	public CmdParser(){
@@ -37,6 +38,9 @@ class CmdParser{
 				break;
 			case "rst":
 				trnOrd.passArg(argList);
+				break;
+			case "roll":
+				dr.passArg(argList);
 				break;
 			case "rnd":
 				Random r = new Random();
