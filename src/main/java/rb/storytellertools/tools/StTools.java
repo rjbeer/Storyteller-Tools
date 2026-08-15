@@ -37,11 +37,7 @@ public class StTools{
 		curCmd = arguments.get(0);
 
 		parser.parseCmd(arguments);
-		//for(int i = 0; i < arguments.size(); i++){
-		//	System.out.println(arguments.get(i));
-		//}
 	}
     }
-
 
 }
